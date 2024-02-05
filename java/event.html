@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even handler</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+            document.querySelector("form").onsubmit = function(){
+                
+
+            };
+        });
+        function goodby(){
+            document.querySelector("h1").innerHTML = "Good Bye";
+        }
+    </script>
+</head>
+
+<body>
+    <h1>hello</h1>
+    <button onclick="goodby()">Click Me</button>
+    
+    <form action="">
+        <p>Name :</p>
+        <input type="text" id="name"/>
+        <input type= "submit" id="value"/>
+    </form>
+</body>
+</html>

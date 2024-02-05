@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Responsive Navigation Bar</title>
+</head>
+<body>
+    <style>
+        /* General styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #333;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.menu {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-right: 1rem;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.audio-login {
+  display: flex;
+}
+
+.audio-btn,
+.login-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+}
+
+/* Tablet styles */
+@media screen and (max-width: 1199px) {
+  .menu {
+    position: relative;
+  }
+
+  .menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+
+  .menu li {
+    display: none;
+  }
+
+  .menu li:first-child {
+    display: block;
+  }
+
+  .audio-login {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    flex-direction: column;
+  }
+
+  .audio-btn,
+  .login-btn {
+    margin: 0.5rem 0;
+  }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 767px) {
+  .menu a {
+    padding: 0.25rem 0.5rem;
+  }
+
+  .audio-login {
+    flex-direction: column;
+  }
+}
+    </style>
+  <nav>
+    <div class="logo">
+      <a href="#">Logo</a>
+    </div>
+    <div class="menu">
+      <!-- Navigation links will be inserted here -->
+    </div>
+    <div class="audio-login">
+      <button class="audio-btn">Audio</button>
+      <button class="login-btn">Log In</button>
+    </div>
+  </nav>
+  <!-- Your page content goes here -->
+</body>
+</html>
