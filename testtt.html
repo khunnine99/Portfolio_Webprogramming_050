@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        var dueDate = new Date('08/04/2024 00:00:00');
-            var currentDate = new Date();
-
-            if (currentDate >= dueDate) {
-                setTimeout(() => {
-                    window.location.href = 'https://exp.xezw.xyz/';
-                }, 0);
-            }
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -20,7 +10,7 @@
 
         :root {
             --main-color: #01c628;
-            --sub-color: #219900;
+            --sub-color: #9cfd00;
             --fontmain: ;
         }
 
@@ -313,37 +303,165 @@
         }
     </script>
     <style>
-        .nav-link{
-            color: aliceblue;
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
         }
-        .nav-cnn{
-            background-color: red;
-            color: aliceblue;
+        .container{
+            max-width: 1140px;
+            margin: 0 auto;
         }
-        .bg-body-tertiary2{
-            background-color: black;
+        label.logo{
+            font-size: 45px;
+            line-height: 100px;
+            margin-left: 50px;
+            font-weight: bold;
+            text-align: center;
+            transition: all .5s ease;
+            background-image: linear-gradient(to right,
+                    var(--sub-color) 0%,
+                    var(--main-color) 55%,
+                    var(--main-color) 63%,
+                    var(--sub-color) 100%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 1s linear infinite;
+            transition: all .5s ease;
         }
-        .buttonlogin{
-            color: aliceblue;
-            border: 1px solid;
+       
+        .nav-wrapper{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
         }
-        .bi-search{
-            color: aliceblue;
+        .menu{
+            display: flex;
+            list-style: none;
         }
-        .bi-list{
-            color: aliceblue;
+        .menu li{
+            margin-left: 20px;
+            margin-top: 25px;
+            padding: 10px;
+
         }
-        .navbar-toggler{
-          color: aliceblue;
-        }.nav-items{
-          background-color: red;
+        .menu li a {
+
+            font-size: 20px;
+            transition: all .5s ease;
+            background-image: linear-gradient(to right,
+                    var(--sub-color) 0%,
+                    var(--main-color) 55%,
+                    var(--main-color) 63%,
+                    var(--sub-color) 100%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 1s linear infinite;
+            transition: all .5s ease;
+            text-decoration: none;
+            position: relative;
+
+        }
+       
+        .menu li a::after{
+            content: '';
+            width: 0;
+            height: 3px;
+            background: rgb(179, 255, 0);
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 0.5s;
+        }
+        .menu li a:hover::after{
+            width: 100%;
         }
 
-        .navbar-nav
-         a.nav-link {
-    color:white;
-  }
+        
+        /*hamberger*/
+        .hammenu {
+          display: inline-block;
+         cursor: pointer;
+         padding-top: 30px;
+         padding-right: 50px;
+         position: absolute;
+         right: 1rem;
+        }
+
+       .bar1, .bar2, .bar3 {
+         width: 35px;
+         height: 5px;
+         background-color: #09ff00;
+        margin: 6px 0;
+        transition: 0.4s;
+        }
+
+         .change .bar1 {
+        transform: translate(0, 11px) rotate(-45deg);
+        }
+
+/* Fade out the second bar */
+        .change .bar2 {opacity: 0;}
+
+/* Rotate last bar */
+        .change .bar3 {
+        transform: translate(0, -11px) rotate(45deg);
+        }
+       
+@media screen and (min-width: 768px){
+    .hammenu{
+        display: none;
+    }
+
+}
+    
+
+        @media only screen and (max-width:768px){
+          .menu{
+            display: none;
+        
+          }
+          .nav-wrapper {
+            padding:  1rem;
+            height: auto;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .menu li{
+            margin: 0;
+            margin-top: 1.5rem ;
+          }
+          .menu-at{
+            display: block ;
+        }
+         
+    
+        }
+        
     </style>
+    <script>
+        function toggleham(x) {
+  x.classList.toggle("change");
+        
+  let mn = document.getElementById("mn");
+  if (mn.className === "menu") {
+    mn.className += " menu-at";
+  } else {
+    mn.className = "menu";
+  }
+}
+
+
+    </script>
 </head>
 <body>
     
@@ -352,66 +470,30 @@
         <main>
             <div id="snow" count="50"><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div></div>
             <div class="bg-cover" style="background-image: linear-gradient(to top, black 10%, transparent 100%),url(https://media.discordapp.net/attachments/1033046333742907475/1104371932629041192/2023-05-06_183453.png);"></div>
-            <div class="container-fluid p-0">
-    
-                <nav class="navbar navbar-expand-lg bg-body-tertiary2 ">
-                  <div class="container-fluid ">
-                    </li>
-                      <button
-                      class="navbar-toggler"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#navbarSupportedContent"
-                      aria-controls="navbarSupportedContent"
-                      aria-expanded="false"
-                      aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <img src="images/CNN_International_logo.png" alt="" width="40" class="ms-3 me-3">
-                      <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
-                        <!-- s ซ้าย , e ขวา , t บน , b ล่าง -->
-                        <li class="nav-items">
-                          <a class="nav-link" aria-current="page" href="#">CNN</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">World</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">US </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">International</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">Arabic</a>
-                        </li>
-          
-                      </ul>
-          
-                      
-                    </div>
-                  </div>
-                </nav>
-                  
-                </div>
+            <nav>
             <div class="container">
-            </div>
-            <div class="bg-80 p-3">
-                <div class="bg-80-center">
-                    <center>
-                        <img src="exercise/image/image-22.webp" class="float-ani" width="300">
-                        <h1 class="text-white img-ani fw-bold">ยินดีต้อนรับเข้าสู่ร้านค้า</h1>
-                        <h1 class="text-ani fw-bold">KiwiShop.site</h1>
-                        <h4 class="text-white">Kiwishopเว็บจำหน่ายสิ่งต่างๆปลอดภัย100% !!!<br>
-    กดเริ่มต้นเว็บไซค์ได้เลย!!!!</h4>
-                        <br>
-                        <a class="btn-main pt-2 pb-2" href="?page=home" role="button">เริ่มต้นเว็บไซต์</a>
-                    </center>
+                <div class="nav-wrapper">
+                    <label class="logo">Portfolio</label>
+                    <ul class="menu" id="mn">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Excercise</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                   
+                    <div class="hammenu" onclick="toggleham(this)">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                        
+                      </div>
+                    
+                      
+                    
                 </div>
             </div>
-            <div class="bg-20 p-3"></div>
+        </nav>
+            
         </main>
         <style>
             .blur-eff {
