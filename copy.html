@@ -1,0 +1,814 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+    <title>6540011038 Pantakit Seling </title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+  
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&amp;family=Protest+Riot&amp;display=swap" rel="stylesheet">
+  
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+    <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    body {
+  font-family: 'Noto Sans Thai', sans-serif;
+  color: #272829;
+}
+
+a {
+  color: #149ddd;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #37b3ed;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Protest Riot', sans-serif;
+}
+
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: #149ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.back-to-top i {
+  font-size: 28px;
+  color: #fff;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: #2eafec;
+  color: #fff;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  transition: all ease-in-out 0.5s;
+  z-index: 9997;
+  transition: all 0.5s;
+  padding: 0 15px;
+  background: #040b14;
+  overflow-y: auto;
+}
+
+#header .profile img {
+  margin: 15px auto;
+  display: block;
+  width: 120px;
+  border: 8px solid #2c2f3f;
+}
+
+#header .profile h1 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+}
+
+#header .profile h1 a,
+#header .profile h1 a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+#header .profile .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #212431;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+#header .profile .social-links a:hover {
+  background: #149ddd;
+  color: #fff;
+  text-decoration: none;
+}
+
+#main {
+  margin-left: 300px;
+}
+
+.container,
+.container-fluid {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+@media (max-width: 1199px) {
+  #header {
+    left: -300px;
+  }
+
+  #main {
+    margin-left: 0;
+  }
+
+  .container,
+  .container-fluid {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+.nav-menu {
+  padding: 30px 0 0 0;
+}
+
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu>ul>li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-menu a,
+.nav-menu a:focus {
+  display: flex;
+  align-items: center;
+  color: #a8a9b4;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.nav-menu a i,
+.nav-menu a:focus i {
+  font-size: 24px;
+  padding-right: 8px;
+  color: #6f7180;
+}
+
+.nav-menu a:hover,
+.nav-menu .active,
+.nav-menu .active:focus,
+.nav-menu li:hover>a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-menu a:hover i,
+.nav-menu .active i,
+.nav-menu .active:focus i,
+.nav-menu li:hover>a i {
+  color: #149ddd;
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 9998;
+  border: 0;
+  font-size: 24px;
+  transition: all 0.4s;
+  outline: none !important;
+  background-color: #149ddd;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.mobile-nav-active {
+  overflow: hidden;
+}
+
+.mobile-nav-active #header {
+  left: 0;
+}
+
+#hero {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/home.jpg") top center;
+  background-size: cover;
+}
+
+#hero:before {
+  content: "";
+  background: rgba(5, 13, 24, 0.3);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+#hero .hero-container {
+  position: relative;
+  z-index: 2;
+  min-width: 300px;
+}
+
+#hero h1 {
+  margin: 0 0 10px 0;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+}
+
+#hero p {
+  color: #fff;
+  margin-bottom: 50px;
+  font-size: 26px;
+  font-family: "Poppins", sans-serif;
+}
+
+#hero p span {
+  color: #fff;
+  padding-bottom: 4px;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #149ddd;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-bg {
+  background: #f5f8fd;
+}
+
+.section-title {
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: #173b6c;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #149ddd;
+  bottom: 0;
+  left: 0;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# แนะนำตัวเอง
+--------------------------------------------------------------*/
+.about .content h3 {
+  font-weight: 700;
+  font-size: 26px;
+  color: #173b6c;
+}
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about .content ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.about .content ul strong {
+  margin-right: 10px;
+}
+
+.about .content ul i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: #149ddd;
+  line-height: 0;
+}
+
+.about .content p:last-child {
+  margin-bottom: 0;
+}
+
+.Exercise .container a img {
+  transition: transform 0.3s ease;
+}
+
+.Exercise .container a:hover img {
+  transform: scale(1.1);
+}
+
+.Exercise ::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+}
+  </style>
+  <script>
+    /**
+* Template Name: iPortfolio
+* Updated: Jan 29 2024 with Bootstrap v5.3.2
+* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+(function() {
+  "use strict";
+
+  /**
+   * Easy selector helper function
+   */
+  const select = (el, all = false) => {
+    el = el.trim()
+    if (all) {
+      return [...document.querySelectorAll(el)]
+    } else {
+      return document.querySelector(el)
+    }
+  }
+
+  /**
+   * Easy event listener function
+   */
+  const on = (type, el, listener, all = false) => {
+    let selectEl = select(el, all)
+    if (selectEl) {
+      if (all) {
+        selectEl.forEach(e => e.addEventListener(type, listener))
+      } else {
+        selectEl.addEventListener(type, listener)
+      }
+    }
+  }
+
+  /**
+   * Easy on scroll event listener 
+   */
+  const onscroll = (el, listener) => {
+    el.addEventListener('scroll', listener)
+  }
+
+  /**
+   * Navbar links active state on scroll
+   */
+  let navbarlinks = select('#navbar .scrollto', true)
+  const navbarlinksActive = () => {
+    let position = window.scrollY + 200
+    navbarlinks.forEach(navbarlink => {
+      if (!navbarlink.hash) return
+      let section = select(navbarlink.hash)
+      if (!section) return
+      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+        navbarlink.classList.add('active')
+      } else {
+        navbarlink.classList.remove('active')
+      }
+    })
+  }
+  window.addEventListener('load', navbarlinksActive)
+  onscroll(document, navbarlinksActive)
+
+  /**
+   * Scrolls to an element with header offset
+   */
+  const scrollto = (el) => {
+    let elementPos = select(el).offsetTop
+    window.scrollTo({
+      top: elementPos,
+      behavior: 'smooth'
+    })
+  }
+
+  /**
+   * Back to top button
+   */
+  let backtotop = select('.back-to-top')
+  if (backtotop) {
+    const toggleBacktotop = () => {
+      if (window.scrollY > 100) {
+        backtotop.classList.add('active')
+      } else {
+        backtotop.classList.remove('active')
+      }
+    }
+    window.addEventListener('load', toggleBacktotop)
+    onscroll(document, toggleBacktotop)
+  }
+
+  /**
+   * Mobile nav toggle
+   */
+  on('click', '.mobile-nav-toggle', function(e) {
+    select('body').classList.toggle('mobile-nav-active')
+    this.classList.toggle('bi-list')
+    this.classList.toggle('bi-x')
+  })
+
+  /**
+   * Scrool with ofset on links with a class name .scrollto
+   */
+  on('click', '.scrollto', function(e) {
+    if (select(this.hash)) {
+      e.preventDefault()
+
+      let body = select('body')
+      if (body.classList.contains('mobile-nav-active')) {
+        body.classList.remove('mobile-nav-active')
+        let navbarToggle = select('.mobile-nav-toggle')
+        navbarToggle.classList.toggle('bi-list')
+        navbarToggle.classList.toggle('bi-x')
+      }
+      scrollto(this.hash)
+    }
+  }, true)
+
+  /**
+   * Scroll with ofset on page load with hash links in the url
+   */
+  window.addEventListener('load', () => {
+    if (window.location.hash) {
+      if (select(window.location.hash)) {
+        scrollto(window.location.hash)
+      }
+    }
+  });
+
+  /**
+   * Hero type effect
+   */
+  const typed = select('.typed')
+  if (typed) {
+    let typed_strings = typed.getAttribute('data-typed-items')
+    typed_strings = typed_strings.split(',')
+    new Typed('.typed', {
+      strings: typed_strings,
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 2000
+    });
+  }
+
+  /**
+   * Skills animation
+   */
+  let skilsContent = select('.skills-content');
+  if (skilsContent) {
+    new Waypoint({
+      element: skilsContent,
+      offset: '80%',
+      handler: function(direction) {
+        let progress = select('.progress .progress-bar', true);
+        progress.forEach((el) => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%'
+        });
+      }
+    })
+  }
+
+  /**
+   * Porfolio isotope and filter
+   */
+  window.addEventListener('load', () => {
+    let portfolioContainer = select('.portfolio-container');
+    if (portfolioContainer) {
+      let portfolioIsotope = new Isotope(portfolioContainer, {
+        itemSelector: '.portfolio-item'
+      });
+
+      let portfolioFilters = select('#portfolio-flters li', true);
+
+      on('click', '#portfolio-flters li', function(e) {
+        e.preventDefault();
+        portfolioFilters.forEach(function(el) {
+          el.classList.remove('filter-active');
+        });
+        this.classList.add('filter-active');
+
+        portfolioIsotope.arrange({
+          filter: this.getAttribute('data-filter')
+        });
+        portfolioIsotope.on('arrangeComplete', function() {
+          AOS.refresh()
+        });
+      }, true);
+    }
+
+  });
+
+  /**
+   * Initiate portfolio lightbox 
+   */
+  const portfolioLightbox = GLightbox({
+    selector: '.portfolio-lightbox'
+  });
+
+  /**
+   * Portfolio details slider
+   */
+  new Swiper('.portfolio-details-slider', {
+    speed: 400,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  });
+
+  /**
+   * Testimonials slider
+   */
+  new Swiper('.testimonials-slider', {
+    speed: 600,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      }
+    }
+  });
+
+  /**
+   * Animation on scroll
+   */
+  window.addEventListener('load', () => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    })
+  });
+
+  /**
+   * Initiate Pure Counter 
+   */
+  new PureCounter();
+
+})()
+  </script>
+  </head>
+  
+  <body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0" class="">
+  
+    <i class="bi mobile-nav-toggle d-xl-none bi-list"></i>
+  
+    <header id="header">
+      <div class="d-flex flex-column">
+  
+        <div class="profile">
+          <img src="assets/img/pro.jpg" alt="" class="img-fluid rounded-circle">
+          <h1 class="text-light"><a href="index.html">Pantakit Saeling</a></h1>
+          <div class="social-links mt-3 text-center">
+            <a href="https://www.facebook.com/profile.php?id=100064953225990" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="https://www.instagram.com/ptk__jay/" class="instagram"><i class="bx bxl-instagram"></i></a>
+          </div>
+        </div>
+  
+        <nav id="navbar" class="nav-menu navbar">
+          <ul>
+            <li><a href="#hero" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Home</span></a></li>
+            <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+            <li><a href="#Exercise" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Excercise</span></a></li>
+            <li><a href="#contact" class="nav-link scrollto active"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  
+    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+      <div class="hero-container aos-init aos-animate" data-aos="fade-in">
+        <h1>My Name is Pantakit Saeling!!</h1>
+      </div>
+    </section>
+  
+    <main id="main">
+  
+      <!-- ======= แนะนำตัวเอง ======= -->
+      <section id="about" class="about">
+        <div class="container">
+  
+          <div class="section-title">
+            <h2>About</h2>
+            <p>ผมชื่อ นายพันธกิจ แซ่ลิ้ง ชื่อเล่นชื่อ เจ เรียนอยู่สาขา IT ปี2 ครับ ผมชื่นชอบข้อมูล และฝันที่อยากจะเป็นนัก Data science ที่เก่ง </p>
+          </div>
+  
+          <div class="row">
+            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-right">
+              <img src="assets/img/pro1.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-8 pt-4 pt-lg-0 content aos-init aos-animate" data-aos="fade-left">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1/ธันวาคม/2545</span></li>            
+                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>082-337-9677</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Address:</strong> <span>บ้านเลขที่ 410 หมู่.5 ต.ขุนทะเล อ.เมือง จ.สุราษฎธานี 84100 </span></li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>21</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>pantakitsaelingjob@gmail.com</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- ======= งาน ======= -->
+      <section id="Exercise" class="Exercise">
+        <div class="container">
+          <div class="section-title">
+            <h2>Excercise</h2>
+            <div class="container-fluid">
+              <div class="row portfolio mt-5 ms-0 me-0 headerVSpace">
+                <div class="col">
+                  <a href="assets/งาน/EX.1/EX.1.html"> <img class="img1" src="assets/img/7609.jpg" alt="" width="200px">
+                  </a>
+                  <h5 class="mt-3">Exercise 1</h5>
+                  <a class="aa" href="assets/งาน/EX.1/EX.1.html">How Websites Work</a>
+                </div>
+                <div class="col">
+                  <a href="assets/งาน/EX.2/ex2.html"> <img class="img2" src="assets/img/50190.jpg" alt="" width="200px">
+                  </a>
+                  <h5 class="mt-3">Exercise 2</h5>
+                  <a class="aa" href="assets/งาน/EX.2/ex2.html">FoodMenu</a>
+                </div>
+                <div class="col">
+                  <a href="assets/งาน/EX.3/ex3_035_038.html"> <img class="img3" src="assets/img/3d.jpg" alt="" width="265px">
+                  </a>
+                  <h5 class="mt-3">Exercise 3</h5>
+                  <a class="aa" href="assets/งาน/EX.3/ex3_035_038.html">Form IT IS</a>
+              </div>
+              <div class="col">
+                <a href="assets/งาน/EX.4/bootstrap.html"> <img class="img4" src="assets/img/2951471.jpg" alt="" width="200px">
+                </a>
+                  <h5 class="mt-3">Exercise 4</h5>
+                  <a class="aa" href="assets/งาน/EX.4/bootstrap.html">BootStrap</a>
+              </div>
+              <div class="col">
+                <a href="assets/งาน/EX.5/Ex-5_Check_Form_Login.html"> <img class="img5" src="assets/img/log.jpg" alt="" width="200px">
+                </a>
+                  <h5 class="mt-3">Exercise 5</h5>
+                  <a class="aa" href="assets/งาน/EX.5/Ex-5_Check_Form_Login.html">Check Form Login</a>
+              </div>
+              </div>
+              </div>
+      </div></div></section>
+      <!-- ======= ช่องทางติดต่อ ======= -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-title">
+            <h2>Contact</h2>
+          </div>
+          <div class="row aos-init aos-animate" data-aos="fade-in">
+            <div class="col-lg-5 d-flex align-items-stretch">
+              <div class="info">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Location:</h4>
+                  <p>บ้านเลขที่ 410 หมู่.5 ต.ขุนทะเล อ.เมือง จ.สุราษฎธานี 84100</p>
+                </div>
+  
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>pantakitsaelingjob@gmail.com</p>
+                </div>
+  
+                <div class="phone">
+                  <i class="bi bi-phone"></i>
+                  <h4>Call:</h4>
+                  <p>082-337-9677</p>
+                </div>
+  
+                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d4965.030464653159!2d99.38536170514915!3d8.99538047205289!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1707927384945!5m2!1sth!2sth&quot;" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen=""></iframe>
+              </div>
+            </div>
+            <div class="col-lg-6 d-none d-md-block"> <img src="assets/img/left.jpg" alt="" width="450px"></div>
+            </div>
+        </div>
+      </section>
+    </main>
+  
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+  
+    <script src="assets/js/main.js"></script>
+  
+  </body></html>

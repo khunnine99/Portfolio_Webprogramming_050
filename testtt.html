@@ -9,8 +9,13 @@
         @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
         :root {
-            --main-color: #01c628;
-            --sub-color: #9cfd00;
+            --main-color: rgba(255, 166, 0, 0.918);
+            --sub-color: #fbff00;
+            --fontmain: ;
+        }
+        :root2 {
+            --main-color: rgba(255, 0, 179, 0.918);
+            --sub-color: #8400ff;
             --fontmain: ;
         }
 
@@ -376,7 +381,7 @@
             content: '';
             width: 0;
             height: 3px;
-            background: rgb(179, 255, 0);
+            background: rgb(255, 251, 0);
             position: absolute;
             left: 0;
             bottom: -6px;
@@ -400,7 +405,7 @@
        .bar1, .bar2, .bar3 {
          width: 35px;
          height: 5px;
-         background-color: #09ff00;
+         background-color: #fbff00;
         margin: 6px 0;
         transition: 0.4s;
         }
@@ -462,6 +467,82 @@
 
 
     </script>
+    <style>
+        .home{ 
+           height: 90vh;
+           
+        }
+        .homee{
+            margin-top: 10vh;
+            align-items: center;
+        }
+        .pic{
+            padding-right: 10px;
+            text-align: center;
+            margin-bottom: 50px;
+            
+        }
+        .nine{
+            text-align: center;
+
+        }
+        .nine h1{
+            align-items: center;
+            transition: all .5s ease;
+            background-image: linear-gradient(to right,
+                    var(--sub-color) 0%,
+                    var(--main-color) 55%,
+                    var(--main-color) 63%,
+                    var(--sub-color) 100%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 1s linear infinite;
+            transition: all .5s ease;
+            
+
+        }
+        .row{
+            padding: 10px;
+            margin-bottom: 100px;
+        }
+        .name,.homework{
+            padding-bottom: 20px;
+        }
+        .name h2,.homework h2{
+            padding-bottom: 20px;
+            transition: all .5s ease;
+            background-image: linear-gradient(to right,
+                    var(--sub-color) 0%,
+                    var(--main-color) 55%,
+                    var(--main-color) 63%,
+                    var(--sub-color) 100%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 1s linear infinite;
+            transition: all .5s ease;
+
+        }
+        .about,.excercise{
+            color: #fff;
+        }
+        strong{
+            color: #0eff06;
+        }
+        .row li{
+            padding-top: 15px;
+            font-size: 18px;
+        }
+    
+        
+    </style>
 </head>
 <body>
     
@@ -493,7 +574,61 @@
                 </div>
             </div>
         </nav>
-            
+        <div>
+            <div class="container-fluid home">
+      <div class="row paddingtop    homee">
+        <div class="col-md-4 col-lg-6 pic">
+          <img src="image/S__16556034.jpg" class="img-fluid " width="500"  />
+        </div>
+        <div class="col-md-8 col-lg-6 nine aos-init aos-anomate">
+                  <h1>My Name is Suraphat Rotchan</h1>
+                </div>
+            </div>
+      </div>
+    
+    </div>
+    <section id="about" class="about">
+        <div class="container   conabout">
+          <div class="name">
+            <h2>About</h2>
+            <h4> สวัสดีคับผมชื่อนายสุรพัศ รอดจันทร์ ชื่อเล่นนาย เรียนอยู่มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี คณะวิทยาศาสตร์และเทคโนโลยีอุตสหกรรม สาขาเทคโนโลยีสารสนเทศ(IT)
+                ชอบเล่นเกม ออกแบบ ดีไซน์ อยากเป็นนักแคสเกมและนักเขียนเว็บ
+            </h4>
+          </div>
+  
+          <div class="row">
+            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-right">
+              <img src="image/image-22.webp" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-8 pt-4 pt-lg-0 content aos-init aos-animate" data-aos="fade-left">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday : </strong> <span>9/กันยายน/2547</span></li>            
+                    <li><i class="bi bi-chevron-right"></i> <strong>Phone :</strong> <span>0647626534</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Address :</strong> <span>บ้านเลขที่ 45 ถนนธรรมประทีป ตำบลท่าข้าม อำเภอพุนพิน จังหวัดสุราษฎธานี 84130 </span></li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Age :</strong> <span>9</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Email :</strong> <span>nine224466@gmail.com</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <section id="Excercise" class="excercise">
+        <div class="container   conex">
+          <div class="homework ">
+            <h2>Excercise</h2>
+            <h4> สวัสดีคับผมชื่อนายสุรพัศ รอดจันทร์ ชื่อเล่นนาย เรียนอยู่มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี คณะวิทยาศาสตร์และเทคโนโลยีอุตสหกรรม สาขาเทคโนโลยีสารสนเทศ(IT)
+                ชอบเล่นเกม ออกแบบ ดีไซน์ อยากเป็นนักแคสเกมและนักเขียนเว็บ
+            </h4>
+          </div>
+        </section>
         </main>
         <style>
             .blur-eff {
