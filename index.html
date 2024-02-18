@@ -1,50 +1,813 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Potfolio</title>
-    <link rel="stylesheet" href="style/style.css" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+        :root {
+            --main-color: rgb(255, 166, 0);
+            --sub-color: #e5ff00;
+            --fontmain: ;
+        }
+        :root2 {
+            --main-color: rgba(255, 0, 179, 0.918);
+            --sub-color: #8400ff;
+            --fontmain: ;
+        }
+
+        * {
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .color-font-main {
+            color: var(--main-font-color) !important;
+        }
+
+        .color-sec-main {
+            color: var(--sub-font-color) !important;
+        }
+
+        ::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 25px;
+            background: -webkit-linear-gradient(transparent, var(--main-color));
+        }
+
+        .bg-cover {
+            position: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            min-height: 100vh;
+            z-index: -10;
+        }
+
+        .blur {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            z-index: -9;
+            filter: blur(10px);
+        }
+
+        .bg-80 {
+            width: 100%;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bg-80-center {
+            width: 600px;
+            height: auto;
+        }
+
+        .bg-20 {
+            width: 100%;
+            min-height: 10vh;
+            max-height: auto;
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .bg-black-80 {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .text-ani {
+            color: #fff;
+            font-size: 60px;
+            font-family: 'Prompt', sans-serif;
+            transition: all .5s ease;
+            text-transform: uppercase;
+            background-image: linear-gradient(to right,
+                    var(--sub-color) 0%,
+                    var(--main-color) 55%,
+                    var(--main-color) 63%,
+                    var(--sub-color) 100%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 1s linear infinite;
+            transition: all .5s ease;
+        }
+
+        .text-ani:hover {
+            transform: scale(1.8);
+        }
+
+        @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .img-ani {
+            color: var(--main-color);
+            font-size: 60px;
+            transition: all .5s ease;
+        }
+
+        .img-ani:hover {
+            transform: translateY(-10px);
+        }
+
+        .btn-main {
+            font-size: 15px;
+            padding: 10px 25px;
+            border-radius: 1vh;
+            text-decoration: none;
+            color: var(--main-color);
+            font-family: 'Prompt', sans-serif;
+            border: 2.5px solid var(--main-color);
+            filter: drop-shadow(0 0 90px var(--main-color));
+            transition: all .5s ease;
+        }
+
+        .btn-main:hover {
+            color: white;
+            background-color: var(--main-color);
+            border: 2.5px solid var(--main-color);
+        }
+
+        .float-ani {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translatey(0px);
+            }
+
+            50% {
+                transform: translatey(-30px);
+            }
+
+            100% {
+                transform: translatey(0px);
+            }
+        }
+
+        .snowflake {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(white, white);
+            border-radius: 50%;
+            filter: drop-shadow(0 0 10px white);
+        }
     
-      h1 {
-        color: blue;
-        font-family: "Courier New", Courier, monospace;
-        font-size: 48px;
+    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://kit-pro.fontawesome.com/releases/v6.2.0/css/pro.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script>
+        
+        let snowflakesCount = 50; // Snowflake count, can be overwritten by attrs
+        let baseCss = ``;
+
+
+        // set global attributes
+        if (typeof SNOWFLAKES_COUNT !== 'undefined') {
+            snowflakesCount = SNOWFLAKES_COUNT;
+        }
+        if (typeof BASE_CSS !== 'undefined') {
+            baseCss = BASE_CSS;
+        }
+
+        let bodyHeightPx = null;
+        let pageHeightVh = null;
+
+        function setHeightVariables() {
+            bodyHeightPx = document.body.offsetHeight;
+            pageHeightVh = (100 * bodyHeightPx / window.innerHeight);
+        }
+
+        // get params set in snow div
+        function getSnowAttributes() {
+            const snowWrapper = document.getElementById('snow');
+            if (snowWrapper) {
+                snowflakesCount = Number(
+                    snowWrapper.attributes?.count?.value || snowflakesCount
+                );
+            }
+        }
+
+        // This function allows you to turn on and off the snow
+        function showSnow(value) {
+            if (value) {
+                document.getElementById('snow').style.display = "block";
+            } else {
+                document.getElementById('snow').style.display = "none";
+            }
+        }
+
+        // Creating snowflakes
+        function spawnSnow(snowDensity = 200) {
+            snowDensity -= 1;
+
+            for (let i = 0; i < snowDensity; i++) {
+                let board = document.createElement('div');
+                board.className = "snowflake";
+
+                document.getElementById('snow').appendChild(board);
+            }
+        }
+
+        // Append style for each snowflake to the head
+        function addCss(rule) {
+            let css = document.createElement('style');
+            css.appendChild(document.createTextNode(rule)); // Support for the rest
+            document.getElementsByTagName("head")[0].appendChild(css);
+        }
+
+        // Math
+        function randomInt(value = 100) {
+            return Math.floor(Math.random() * value) + 1;
+        }
+
+        function randomIntRange(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function getRandomArbitrary(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        // Create style for snowflake
+        function spawnSnowCSS(snowDensity = 200) {
+            let snowflakeName = "snowflake";
+            let rule = baseCss;
+
+            for (let i = 1; i < snowDensity; i++) {
+                let randomX = Math.random() * 100; // vw
+                let randomOffset = Math.random() * 10 // vw;
+                let randomXEnd = randomX + randomOffset;
+                let randomXEndYoyo = randomX + (randomOffset / 2);
+                let randomYoyoTime = getRandomArbitrary(0.3, 0.8);
+                let randomYoyoY = randomYoyoTime * pageHeightVh; // vh
+                let randomScale = Math.random();
+                let fallDuration = randomIntRange(10, pageHeightVh / 10 * 3); // s
+                let fallDelay = randomInt(pageHeightVh / 10 * 3) * -1; // s
+                let opacity = Math.random();
+
+                rule += `
+      .${snowflakeName}:nth-child(${i}) {
+        opacity: ${opacity};
+        transform: translate(${randomX}vw, -10px) scale(${randomScale});
+        animation: fall-${i} ${fallDuration}s ${fallDelay}s linear infinite;
       }
-      .topic {
-        color: aquamarine;
-        font: size 36px;
+      @keyframes fall-${i} {
+        ${randomYoyoTime * 100}% {
+          transform: translate(${randomXEnd}vw, ${randomYoyoY}vh) scale(${randomScale});
+        }
+        to {
+          transform: translate(${randomXEndYoyo}vw, ${pageHeightVh}vh) scale(${randomScale});
+        }
       }
-      .tocic {
-        color: brown;
-      }
-    </style>wwwwwwww
-  </head>
-  <h1>Potfolio</h1>
-  <body>
-    <h3>นายสุรพัศ รอดจันทร์ 6540011050</h3>
-    <li>
-      <a
-        href="https://www.canva.com/design/DAF00B0k1bs/LFNt1ODot77c_hOG35lllw/edit?classId=99f2585a-998b-41a9-9d9b-1f3a0ee28530&assignmentId=8ce05d0e-d685-49e3-b2bf-957896e1f4ca&submissionId=70dfc0e8-7b21-4353-b343-863bddefe16e"
-        >Ex1 : วาดภาพอธิบาย สถาปัตยกรรมของเทคโนโลยี World Wide Wed
-        สรุปจากการดูวิดิโอ
-      </a>
-    </li>
-    <li>
-      <a href="exercise/ex2.html">Ex2 : สร้างเว็บเพจเมนูอาหารที่ท่านชื่นชอบ </a>
-    </li>
-    <li>
-      <a href="exercise/ex3_017_050.html"
-        >Ex3 : สร้างเว็บเพจออกเเบบฟอร์มลงทะเบียนศิษย์เก่า IT + IS
-      </a>
-    </li>
-    <h1 class="topic">About Me</h1>
-    <p class="topic">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, ea earum
-      nam rem expedita exercitationem ipsum doloremque consequuntur quisquam
-      quis officiis enim in, consectetur quae ex, sint eum? Nostrum, rerum?
-    </p>
-    <h1 class="tocic">Contact Me</h1>
-  </body>
+    `
+            }
+            addCss(rule);
+        }
+
+        // Load the rules and execute after the DOM loads
+        createSnow = function() {
+            setHeightVariables();
+            getSnowAttributes();
+            spawnSnowCSS(snowflakesCount);
+            spawnSnow(snowflakesCount);
+        };
+
+
+        // export createSnow function if using node or CommonJS environment
+        if (typeof module !== 'undefined') {
+            module.exports = {
+                createSnow,
+                showSnow,
+            };
+        } else {
+            window.onload = createSnow;
+        }
+    </script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+        label.logo{
+            font-size: 45px;
+            line-height: 100px;
+            margin-left: 50px;
+            font-weight: bold;
+            text-align: center;
+            transition: all .5s ease;
+            background-image: linear-gradient(to right,
+                    var(--sub-color) 0%,
+                    var(--main-color) 55%,
+                    var(--main-color) 63%,
+                    var(--sub-color) 100%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 1s linear infinite;
+            transition: all .5s ease;
+        }
+       
+        .nav-wrapper{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        .menu{
+            display: flex;
+            list-style: none;
+        }
+        .menu li{
+            margin-left: 20px;
+            margin-top: 25px;
+            padding: 10px;
+
+        }
+        .menu li a {
+
+            font-size: 20px;
+            transition: all .5s ease;
+            background-image: linear-gradient(to right,
+                    var(--sub-color) 0%,
+                    var(--main-color) 55%,
+                    var(--main-color) 63%,
+                    var(--sub-color) 100%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 1s linear infinite;
+            transition: all .5s ease;
+            text-decoration: none;
+            position: relative;
+
+        }
+       
+        .menu li a::after{
+            content: '';
+            width: 0;
+            height: 3px;
+            background: rgb(255, 251, 0);
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 0.5s;
+        }
+        .menu li a:hover::after{
+            width: 100%;
+        }
+
+        
+        /*hamberger*/
+        .hammenu {
+          display: inline-block;
+         cursor: pointer;
+         padding-top: 30px;
+         padding-right: 50px;
+         position: absolute;
+         right: 1rem;
+        }
+
+       .bar1, .bar2, .bar3 {
+         width: 35px;
+         height: 5px;
+         background-color: #fbff00;
+        margin: 6px 0;
+        transition: 0.4s;
+        }
+
+         .change .bar1 {
+        transform: translate(0, 11px) rotate(-45deg);
+        }
+
+/* Fade out the second bar */
+        .change .bar2 {opacity: 0;}
+
+/* Rotate last bar */
+        .change .bar3 {
+        transform: translate(0, -11px) rotate(45deg);
+        }
+       
+@media screen and (min-width: 768px){
+    .hammenu{
+        display: none;
+    }
+
+}
+    
+
+        @media only screen and (max-width:768px){
+          .menu{
+            display: none;
+        
+          }
+          .nav-wrapper {
+            padding:  1rem;
+            height: auto;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .menu li{
+            margin: 0;
+            margin-top: 1.5rem ;
+          }
+          .menu-at{
+            display: block ;
+        }
+         
+    
+        }
+        
+    </style>
+    <script>
+        function toggleham(x) {
+  x.classList.toggle("change");
+        
+  let mn = document.getElementById("mn");
+  if (mn.className === "menu") {
+    mn.className += " menu-at";
+  } else {
+    mn.className = "menu";
+  }
+}
+
+
+    </script>
+    <style>
+        .home{ 
+           height: 90vh;
+           
+        }
+        .homee{
+            margin-top: 10vh;
+            align-items: center;
+        }
+        .pic{
+            padding-right: 10px;
+            text-align: center;
+            margin-bottom: 50px;
+            
+        }
+        .nine{
+            text-align: center;
+
+        }
+        .nine h1{
+            align-items: center;
+            transition: all .5s ease;
+            background-image: linear-gradient(to right,
+                    var(--sub-color) 0%,
+                    var(--main-color) 55%,
+                    var(--main-color) 63%,
+                    var(--sub-color) 100%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 1s linear infinite;
+            transition: all .5s ease;
+            
+
+        }
+        .row{
+            padding: 10px;
+            margin-bottom: 100px;
+        }
+        .name,.homework{
+            padding-bottom: 20px;
+        }
+        .name h1,.homework h1,.ct h1{
+            padding-bottom: 20px;
+            transition: all .5s ease;
+            background-image: linear-gradient(to right,
+                    var(--sub-color) 0%,
+                    var(--main-color) 55%,
+                    var(--main-color) 63%,
+                    var(--sub-color) 100%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 1s linear infinite;
+            transition: all .5s ease;
+
+        }
+        .about,.excercise,.ct{
+            color: #fff;
+        }
+        .ct strong{
+            color: #0eff06;
+        }
+        .ctt strong{
+            color: #f706ff;
+        }
+        .row li{
+            padding-top: 15px;
+            font-size: 18px;
+        }
+        .col-1 a,.form-label{
+            transition: all .5s ease;
+            background-image: linear-gradient(to right,
+                    var(--sub-color) 0%,
+                    var(--main-color) 55%,
+                    var(--main-color) 63%,
+                    var(--sub-color) 100%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 1s linear infinite;
+            transition: all .5s ease;            
+            
+        }
+        .icon{
+            color: #fff;
+        }
+       
+    
+        
+    </style>
+</head>
+<body>
+    
+    <body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+        
+        <main>
+            <div id="snow" count="50"><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div><div class="snowflake"></div></div>
+            <div class="bg-cover" style="background-image: linear-gradient(to top, black 10%, transparent 100%),url(https://media.discordapp.net/attachments/1033046333742907475/1104371932629041192/2023-05-06_183453.png);"></div>
+            <nav>
+            <div class="container" id="homes">
+                <div class="nav-wrapper">
+                    <label class="logo">Portfolio</label>
+                    <ul class="menu" id="mn">
+                        <li><a href="#homes">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#Excercise">Excercise</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                   
+                    <div class="hammenu" onclick="toggleham(this)">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                        
+                      </div>
+                    
+                      
+                    
+                </div>
+            </div>
+        </nav>
+        <div>
+            <div class="container-fluid home">
+      <div class="row paddingtop    homee">
+        <div class="col-md-4 col-lg-6 pic">
+          <img src="image/S__16556034.jpg" class="img-fluid " width="500"  />
+        </div>
+        <div class="col-md-8 col-lg-6 nine aos-init aos-anomate">
+                  <h1>My Name is Suraphat Rotchan</h1>
+                </div>
+            </div>
+      </div>
+    
+    </div>
+    <section id="about" class="about">
+        <div class="container   conabout">
+          <div class="name">
+            <h1>About</h1>
+            <h4> สวัสดีคับผมชื่อนายสุรพัศ รอดจันทร์ ชื่อเล่นนาย เรียนอยู่มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตสุราษฎร์ธานี คณะวิทยาศาสตร์และเทคโนโลยีอุตสหกรรม สาขาเทคโนโลยีสารสนเทศ(IT)
+                ชอบเล่นเกม ออกแบบ ดีไซน์ อยากเป็นนักแคสเกมและนักเขียนเว็บ
+            </h4>
+          </div>
+  
+          <div class="row ct">
+            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-right">
+              <img src="image/image-22.webp" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-8 pt-4 pt-lg-0 content aos-init aos-animate" data-aos="fade-left">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday : </strong> <span>9/กันยายน/2547</span></li>            
+                    <li><i class="bi bi-chevron-right"></i> <strong>Phone :</strong> <span>0647626534</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Address :</strong> <span>บ้านเลขที่ 45 ถนนธรรมประทีป ตำบลท่าข้าม อำเภอพุนพิน จังหวัดสุราษฎธานี 84130 </span></li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Age :</strong> <span>9</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Email :</strong> <span>nine224466@gmail.com</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="Excercise" class="excercise">
+        <div class="container   conex">
+          <div class="homework ">
+            <h1>Excercise</h1>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-5 com  ">
+                    <div class="card " style="width: 15rem; ">
+                        <img src="/image/classpt.jpg" class="card-img-top"style="height: 238px;" >
+                        <div class="card-body">
+                          <h5 class="card-title">EX1: How Websites </h5>
+                          <a href="https://www.canva.com/design/DAF00B0k1bs/LFNt1ODot77c_hOG35lllw/edit?classId=99f2585a-998b-41a9-9d9b-1f3a0ee28530&assignmentId=8ce05d0e-d685-49e3-b2bf-957896e1f4ca&submissionId=70dfc0e8-7b21-4353-b343-863bddefe16e" class="btn btn-primary ">Go </a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-5 com ">
+                    <div class="card " style="width: 15rem; ">
+                        <img src="/image/menu pt.jpg" class="card-img-top" style="height: 238px;">
+                        <div class="card-body">
+                          <h5 class="card-title">FoodMenu</h5>
+                          <a href="exercise/ex2.html" class="btn btn-primary">Go </a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-5 com ">
+                    <div class="card " style="width: 15rem; ">
+                        <img src="/image/classspt.jpg" class="card-img-top" style="height: 238px;">
+                        <div class="card-body">
+                          <h5 class="card-title">Form IT IS</h5>
+                          <a href="exercise/ex3_017_050.html" class="btn btn-primary">Go </a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-5 com ">
+                    <div class="card " style="width: 15rem;  ">
+                        <img src="/image/bootpt.jpg" class="card-img-top" style="height: 238px;">
+                        <div class="card-body">
+                          <h5 class="card-title">BootStrap</h5>
+                          <a href="/exercise/bootstrap.html" class="btn btn-primary">Go </a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-5 com ">
+                    <div class="card " style="width: 15rem; ">
+                        <img src="/image/loginpt.jpg" class="card-img-top" style="height: 238px;">
+                        <div class="card-body cbody">
+                          <h5 class="card-title">Check Form Login</h5>
+                          <a href="/exercise/login.html" class="btn btn-primary">Go </a>
+                        </div>
+                      </div>
+                </div>                
+                </div>
+                
+                
+            </div>
+          </div>
+        </section>
+        <section id="contect" class="contect">
+            <div class="container   conct">
+              <div class="ct">
+                <h1>Contect</h1>
+                
+              </div>
+              <div class="row ctt">
+                <div class="col-lg-4 aos-init aos-animate" data-aos="fade-right">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13250.85567364922!2d99.2328126665538!3d9.1089605314076!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30540052d785f17d%3A0xe79c7770d411f453!2z4Lih4Li44LiB4LiV4Liy4Lib4Li1!5e0!3m2!1sth!2sth!4v1708271035911!5m2!1sth!2sth"  height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="col-lg-8 pt-4 pt-lg-0 content aos-init aos-animate" data-aos="fade-left">
+                  <div class="row " style="color: #fff;">
+                    <div class="col-lg-6">
+                      <ul>
+                        <li><i class="bi bi-chevron-right"></i> <strong>Call :</strong> <span>0647626534</span></li>
+                        <li><i class="bi bi-chevron-right"></i> <strong>Address :</strong> <span>บ้านเลขที่ 45 ถนนธรรมประทีป ตำบลท่าข้าม อำเภอพุนพิน จังหวัดสุราษฎธานี 84130 </span></li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6">
+                      <ul>
+                        <li><i class="bi bi-chevron-right"></i> <strong>Email :</strong> <span>nine224466@gmail.com</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              
+            </div>
+          </section>
+          <div class="container-fluid  ctt">
+            <div class="row portfolio3 mt-5 headerVSpace">
+              <div class="col-2 text-center row-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-balloon icon" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M8 9.984C10.403 9.506 12 7.48 12 5a4 4 0 0 0-8 0c0 2.48 1.597 4.506 4 4.984M13 5c0 2.837-1.789 5.227-4.52 5.901l.244.487a.25.25 0 1 1-.448.224l-.008-.017c.008.11.02.202.037.29.054.27.161.488.419 1.003.288.578.235 1.15.076 1.629-.157.469-.422.867-.588 1.115l-.004.007a.25.25 0 1 1-.416-.278c.168-.252.4-.6.533-1.003.133-.396.163-.824-.049-1.246l-.013-.028c-.24-.48-.38-.758-.448-1.102a3 3 0 0 1-.052-.45l-.04.08a.25.25 0 1 1-.447-.224l.244-.487C4.789 10.227 3 7.837 3 5a5 5 0 0 1 10 0m-6.938-.495a2 2 0 0 1 1.443-1.443C7.773 2.994 8 2.776 8 2.5s-.226-.504-.498-.459a3 3 0 0 0-2.46 2.461c-.046.272.182.498.458.498s.494-.227.562-.495"></path>
+                    </svg>
+              </div>
+              <div class="col-1">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#homes">Home</a>
+                  </li>               
+                </ul>
+              </div>
+              <div class="col-1">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                  </li>
+                  
+                </ul>
+              </div>
+              <div class="col-1">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#Excercise">Excercise</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4">
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" ">
+                </div>
+              </div>
+              <div class="col-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-facebook px-2 icon" viewBox="0 0 16 16">
+                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"></path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-instagram px-2 icon" viewBox="0 0 16 16">
+                  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"></path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-twitter px-2 icon" viewBox="0 0 16 16">
+                  <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"></path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-browser-chrome px-2 icon" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M16 8a8 8 0 0 1-7.022 7.94l1.902-7.098a3 3 0 0 0 .05-1.492A3 3 0 0 0 10.237 6h5.511A8 8 0 0 1 16 8M0 8a8 8 0 0 0 7.927 8l1.426-5.321a3 3 0 0 1-.723.255 3 3 0 0 1-1.743-.147 3 3 0 0 1-1.043-.7L.633 4.876A8 8 0 0 0 0 8m5.004-.167L1.108 3.936A8.003 8.003 0 0 1 15.418 5H8.066a3 3 0 0 0-1.252.243 2.99 2.99 0 0 0-1.81 2.59M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+
+        </main>
+        <style>
+            .blur-eff {
+                filter: blur(5px);
+                transition: all .5s ease;
+            }
+    
+            .blur-eff:hover {
+                filter: blur(0px);
+            }
+        </style>
+    
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+    
+    
+    </body>
+    
+</body>
 </html>
